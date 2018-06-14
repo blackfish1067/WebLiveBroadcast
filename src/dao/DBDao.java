@@ -3,7 +3,7 @@ package dao;
 import java.sql.*;
 
 public class DBDao {
-	public static Connection getConnection(){
+	protected static Connection getConnection(){
 		Connection conn = null;
 		try{
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
