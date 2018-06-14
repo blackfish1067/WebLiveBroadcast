@@ -3,7 +3,7 @@ package dao;
 import java.sql.*;
 
 public class DBDao {
-	protected static Connection getConnection(){
+	public static Connection getConnection(){
 		Connection conn = null;
 		try{
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -15,7 +15,7 @@ public class DBDao {
 		return conn;
 	}
 	
-	protected static void closeConnection(Connection conn){
+	public static void closeConnection(Connection conn){
 		if(conn != null){
 			try{
 				conn.close();

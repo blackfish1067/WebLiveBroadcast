@@ -1,9 +1,13 @@
 package dao;
 
 import java.sql.*;
+import java.util.ArrayList;
+
 import models.User;
 
-public class UserDao extends DBDao{
+
+
+public class UserDao {
 	public User login(String userID, String password){
 		User user = null;
 		String sql = "SELECT* FROM userData WHERE userID = ? AND password = ?";
@@ -11,7 +15,7 @@ public class UserDao extends DBDao{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
-			conn = getConnection();
+			conn = DBDao.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userID);
 			pstmt.setString(2, password);
@@ -26,17 +30,17 @@ public class UserDao extends DBDao{
 			} catch (Exception e) {
 				e.printStackTrace();
 				}finally{
-					closeConnection(conn);
+					DBDao.closeConnection(conn);
 					}
 		return user;
-	}
+		}
 	
 	public void register(User user){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "insert into userData values(?, ?)";
 		try{
-			conn = getConnection();
+			conn = DBDao.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, user.getUserID());
 			pstmt.setString(2, user.getPassword());
@@ -44,11 +48,12 @@ public class UserDao extends DBDao{
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
-			closeConnection(conn);
+			DBDao.closeConnection(conn);
 		}
 	}
 	
 	//------------------------------------------------------
+	
 	
 	public String getPlaySource(String number, String episode){
 		Connection conn = null;
@@ -57,7 +62,7 @@ public class UserDao extends DBDao{
 		String source = "";
 		ResultSet rSet = null;
 		try{
-			conn = getConnection();
+			conn = DBDao.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, number);
 			pstmt.setString(2, episode); 
@@ -67,8 +72,10 @@ public class UserDao extends DBDao{
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
-			closeConnection(conn);
+			DBDao.closeConnection(conn);
 		}
 		return source;
 	}
+	
+	
 }

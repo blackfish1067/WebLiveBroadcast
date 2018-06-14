@@ -6,7 +6,7 @@ import javax.websocket.Encoder;
 import javax.websocket.EndpointConfig;
 
 
-public class ChatMessageEncoder implements Encoder.Text<ChatMessage> {
+public class ChatMessageEncoder implements Encoder.Text<Message> {
 	@Override
 	public void init(final EndpointConfig config) {
 	}
@@ -16,7 +16,7 @@ public class ChatMessageEncoder implements Encoder.Text<ChatMessage> {
 	}
 
 	@Override
-	public String encode(final ChatMessage chatMessage) throws EncodeException {
+	public String encode(final Message chatMessage) throws EncodeException {
 		return Json.createObjectBuilder()
 				.add("message", chatMessage.getMessage())
 				.add("sender", chatMessage.getSender())

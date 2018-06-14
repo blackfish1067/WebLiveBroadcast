@@ -1,6 +1,6 @@
 package org.wsocketchat;
 
-public class ChatMessage {
+public class audio2Message implements Message{
 	private String message;
 	private String sender;
 	private String received;
@@ -66,11 +66,11 @@ public class ChatMessage {
 	}
 
 	public String getFiletype() {
-		return filetype;
+		return  "audio2";
 	}
 
-	public void setFiletype(String filetype) {
-		this.filetype = filetype;
+	public void setFiletype() {
+		this.filetype = "audio2";
 	}
 
 	public String getFilename() {

@@ -219,7 +219,7 @@ function onMessageReceived(evt) {
 function sendMessage() {
 	
     var msg = '{"message":"' + $message.val() + '", "sender":"'
-	+name+ '", "received":"","receiver":"","filename":"","filetype":"", "ifNext":"n"}';
+	+name+ '", "received":"","receiver":"","filename":"","filetype":"1", "ifNext":"n"}';
 	wsocket.send(msg);
 	$message.val('').focus();
 }
@@ -228,7 +228,7 @@ function sendMessage() {
 function sendToOne() {
 	var options=$("#peopleOption option:selected");
 	var msg = '{"message":"' + $letter.val() + '", "sender":"'
-			+ name + '", "received":"", "receiver":"' + options.text() + '","filename":"","filetype":"", "ifNext":"n"}';
+			+ name + '", "received":"", "receiver":"' + options.text() + '","filename":"","filetype":"1", "ifNext":"n"}';
 	wsocket.send(msg);
 	$letter.val('').focus();
 }
@@ -315,7 +315,7 @@ function sendFile(){
 		wsocket.onmessage = onMessageReceived;//？
 		wsocket.onopen = function() {//用于加载初始信息
 			var msg = '{"message":"", "sender":"' + name 
-				+ '", "received":"","receiver":"","filename":"","filetype":"", "ifNext":"n"}';
+				+ '", "received":"","receiver":"","filename":"","filetype":"1", "ifNext":"n"}';
 			wsocket.send(msg);
 		}
 	}

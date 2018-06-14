@@ -37,9 +37,11 @@ public class ChatEndpoint {
 	
 
 	@OnMessage
-	public void onMessage(Session session, ChatMessage chatMessage) {
+	public void onMessage(Session session, Message chatMessage) {
 		String room = (String) session.getUserProperties().get("room");
         System.out.printf("current Room: " + room +"\n");
+        
+        System.out.printf(chatMessage.getSender()+"nnnnnnnnnn");
         session.getUserProperties().put("name", chatMessage.getSender());
         String names = "";
         try {
@@ -80,7 +82,7 @@ public class ChatEndpoint {
 		try {
 			i=0;
 			String names = "";
-			ChatMessage chatMessage = new ChatMessage();
+			wordMessage chatMessage = new wordMessage();
 	        for(Session s : sessionList){
 	        	if(s.isOpen() && room.equals(s.getUserProperties().get("room"))) {
 	        		names += (String) s.getUserProperties().get("name") + "|";
@@ -90,7 +92,7 @@ public class ChatEndpoint {
 	        chatMessage.setSum(i);
 	        chatMessage.setNames(names);
 	        chatMessage.setFilename("");
-	        chatMessage.setFiletype("");
+	        //chatMessage.setFiletype("");
 	        chatMessage.setIfNext("");
 	        chatMessage.setMessage("");
 	        chatMessage.setReceived("");
