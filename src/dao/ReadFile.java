@@ -42,7 +42,7 @@ public abstract class ReadFile {
     }
 	
 	//将新添加的用户加入到文件中
-	protected static void addUser(String userName, String passwd) throws IOException{
+	public static void addUser(String userName, String passwd) throws IOException{
 		if(!flag){
 			flag = readUsers();
 		}
