@@ -1,10 +1,11 @@
 package dao;
 
 import java.sql.*;
-import models.User;
+import models.*;
 
 public class UserDao extends DBDao{
 	public User login(String userID, String password){
+		UsrFactory usrFactory= new UsrFactory();
 		User user = null;
 		String sql = "SELECT* FROM userData WHERE userID = ? AND password = ?";
 		ResultSet rSet = null;
@@ -17,7 +18,7 @@ public class UserDao extends DBDao{
 			pstmt.setString(2, password);
 			rSet = pstmt.executeQuery();
 			if(rSet.next()){
-				user = new User();
+				user = usrFactory.getUser("client");
 				user.setUserID(rSet.getString("userID"));
 				user.setPassword(rSet.getString("password"));//-----------------------
 				}

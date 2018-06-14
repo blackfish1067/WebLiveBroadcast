@@ -1,22 +1,9 @@
 package models;
 
-public class User {
-	private String userID;
-	private String passkey;
+public interface User {
+	public String getUserID();
 	
-	public String getUserID(){
-		return this.userID;
-	}
-	
-	public void setUserID(String userID){
-		this.userID = userID;
-	}
-	
-	public String getPassword(){
-		return this.passkey;
-	}
-	
-	public void setPassword(String passkey){
-		this.passkey = passkey;
-	}
+	public void setUserID(String userID);
+	public String getPassword();
+	public void setPassword(String passWord);
 }

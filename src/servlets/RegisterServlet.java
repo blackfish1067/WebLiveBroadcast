@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.LoginFile;
 import dao.UserDao;
-import models.User;
+import models.*;
 
 
 /**
@@ -39,7 +39,8 @@ public class RegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		User user = new User();
+		UsrFactory usrFactory=new UsrFactory();
+		User user = usrFactory.getUser("client");
 		user.setUserID(request.getParameter("username"));
 		user.setPassword(request.getParameter("Password"));
 		
