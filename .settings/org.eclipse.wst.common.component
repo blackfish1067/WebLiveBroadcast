@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="WebLiveBroadcast">
-        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="WebLiveBroadcast"/>
-        <property name="java-output-path" value="/WebLiveBroadcast/build/classes"/>
-    </wb-module>
-</project-modules>
