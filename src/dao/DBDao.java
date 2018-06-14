@@ -15,7 +15,7 @@ public class DBDao {
 		return conn;
 	}
 	
-	public static void closeConnection(Connection conn){
+	protected static void closeConnection(Connection conn){
 		if(conn != null){
 			try{
 				conn.close();
